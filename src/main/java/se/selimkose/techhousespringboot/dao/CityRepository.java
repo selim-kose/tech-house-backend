@@ -8,7 +8,7 @@ import se.selimkose.techhousespringboot.entity.City;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200")
 @RepositoryRestResource
 public interface CityRepository extends JpaRepository<City,Integer> {
 

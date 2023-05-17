@@ -1,5 +1,6 @@
 package se.selimkose.techhousespringboot.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -13,13 +14,16 @@ import se.selimkose.techhousespringboot.entity.ProductCategory;
 @Configuration
 public class DataRestConfig implements RepositoryRestConfigurer {
 
-    @Override
+    @Value("${allowed.origins}")
+    private String[] allowedOrigins;
 
+    @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
 
         config.exposeIdsFor(Product.class, ProductCategory.class);
+        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(allowedOrigins);
 
-        HttpMethod[] unsupportedHttpMethods = {HttpMethod.DELETE, HttpMethod.POST, HttpMethod.PUT};
+        HttpMethod[] unsupportedHttpMethods = {HttpMethod.DELETE, HttpMethod.POST, HttpMethod.PUT, HttpMethod.PATCH};
 
         disableHttpMethods(Product.class, config, unsupportedHttpMethods);
         disableHttpMethods(ProductCategory.class, config, unsupportedHttpMethods);
