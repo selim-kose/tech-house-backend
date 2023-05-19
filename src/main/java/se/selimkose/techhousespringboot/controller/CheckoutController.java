@@ -7,7 +7,7 @@ import se.selimkose.techhousespringboot.dto.PurchaseResponse;
 import se.selimkose.techhousespringboot.service.CheckoutService;
 
 @RestController
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/checkout")
 @AllArgsConstructor
 public class CheckoutController {

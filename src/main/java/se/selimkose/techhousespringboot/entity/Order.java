@@ -29,7 +29,6 @@ public class Order {
     private Date dateCreated;
     @UpdateTimestamp
     private Date lastUpdated;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     private Set<OrderItem> orderItems = new HashSet<>();
     @ManyToOne
