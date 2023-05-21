@@ -11,13 +11,10 @@ import se.selimkose.techhousespringboot.entity.*;
 @Configuration
 public class DataRestConfig implements RepositoryRestConfigurer {
 
-    @Value("${allowed.origins}")
-    private String[] allowedOrigins;
+    @Value("${allowed.origins}") private String[] allowedOrigins;
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-
-
 
         //exposing Ids for the classes
         config.exposeIdsFor(Product.class, ProductCategory.class);
