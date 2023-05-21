@@ -10,6 +10,7 @@ import se.selimkose.techhousespringboot.dto.PaymentInfo;
 import se.selimkose.techhousespringboot.dto.Purchase;
 import se.selimkose.techhousespringboot.dto.PurchaseResponse;
 import se.selimkose.techhousespringboot.service.CheckoutService;
+import se.selimkose.techhousespringboot.service.EmailSenderService;
 
 @RestController
 @CrossOrigin("https://localhost:4200")

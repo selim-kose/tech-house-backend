@@ -30,6 +30,8 @@ import java.util.*;
 public class CheckoutServiceImpl implements CheckoutService {
     CustomerRepository customerRepository;
 
+    EmailSenderService emailSenderService;
+
     @Value("${stripe.key.secret}") String secretKey;
 
     @Override
@@ -56,6 +58,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     customer.add(order);
 
+    emailSenderService.sendEmail(customer, order);
     customerRepository.save(customer);
 
         return new PurchaseResponse(orderTrackingNumber);
