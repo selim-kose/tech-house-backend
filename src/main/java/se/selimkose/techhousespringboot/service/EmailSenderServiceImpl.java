@@ -23,7 +23,7 @@ public class EmailSenderServiceImpl implements EmailSenderService {
     public void sendEmail(Customer customer, Order order) {
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setFrom("selim-kose@live.com");
+        message.setFrom("selim.kose.s@gmail.com");
         message.setTo(customer.getEmail());
         message.setSubject("Tech-House Order Confirmation");
 
