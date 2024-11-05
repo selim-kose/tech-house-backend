@@ -11,6 +11,7 @@ import se.selimkose.techhousespringboot.dto.Purchase;
 import se.selimkose.techhousespringboot.dto.PurchaseResponse;
 import se.selimkose.techhousespringboot.service.CheckoutService;
 import se.selimkose.techhousespringboot.service.EmailSenderService;
+import se.selimkose.techhousespringboot.service.S3Service;
 
 @RestController
 @CrossOrigin("https://localhost:4200")
@@ -19,6 +20,7 @@ import se.selimkose.techhousespringboot.service.EmailSenderService;
 public class CheckoutController {
 
     CheckoutService checkoutService;
+    S3Service s3Service;
 
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase){
